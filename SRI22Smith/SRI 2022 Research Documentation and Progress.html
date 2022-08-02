@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>SRI 2022 Research Documentation and Progress</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">SRI 2022 Research Documentation and Progress</h1>
+
+<h3 id="toc_1">Authors: Leyi (Angel) Cui (BC&#39;24), Raven Rothkopf (BC&#39;24)</h3>
+
+<h2 id="toc_2">Initial Research</h2>
+
+<p>Over the past ten weeks, we have been exploring how to make writing TSL more straightforward for programmers of all skill levels. Our first goal was to design a structured editor that eliminated the need to know the intricacies of TSL’s syntax and operators. We developed the structured editor, <a href="https://barnard-pl-labs.github.io/dynamicGrammars/">dynamicGrammars</a>, with dropdown menus that displayed the TSL grammar. With this interface, users could learn TSL through the context of music. We then presented the idea of an autofill system that could help users learn to write TSL and use its grammar, not just build it from dropdowns. After finishing our initial iterations we realized that TSL’s syntax and operators are only inhibitors for first-time users and become straightforward after playing around with dynamicGrammars or the <a href="https://barnard-pl-labs.github.io/tsl-api/">tsltools web API</a>. <strong>We realized that:</strong></p>
+
+<blockquote>
+<p><font color="black"><strong>The real problem with TSL isn’t its syntactic complexity, it’s that there is no uniform approach to designing a logical system with it and no debugging tools to help standardize that approach.</strong></font></p>
+</blockquote>
+
+<h2 id="toc_3">Pilot Studies</h2>
+
+<p>We talked to three of our peers in the lab who were writing TSL in varying fields to help us identify the main difficulties in TSL design.</p>
+
+<p><strong>The first user</strong> (Admire) was working on translating existing Python code for CARLA, an autonomous vehicle simulator, into TSL specifications. The general problem he experienced was that the first version of the TSL spec he wrote didn’t cover all logical scenarios. The main difficulties are as follows: </p>
+
+<ol>
+<li>Coders aren’t used to thinking in the general case first. They normally focus on defining edge cases (if-else statements). In TSL, they have to write the general assumptions of the environment <em>and</em> its edge cases.</li>
+<li>In Python, conditions like the levels of priority in if-else statements are implicit. In TSL, everything must be explicitly defined. </li>
+<li>It’s difficult to visualize how a TSL system and its operators (F(), X(), G(), U()) change over time. <div align=center><img src="pics/overtime.png" width="30%" height="30%"></div></li>
+<li>Negating logic is hard ( F(!) vs. ! (F) ). <div align=center><img src="pics/negation.png" width="30%" height="30%"></div></li>
+</ol>
+
+<p><strong>The second user</strong> (Hannah) was designing a game with TSL. The major problem we identified was that when game designers write code, they want to make it human-readable. Thus, the state machine they come up with might include more states than necessary. However, with TSL, <strong>the most human-readable design isn’t always the most efficient one.</strong> The user designed a system with three states, but the TSL spec only generated one. Determining how many states are wanted vs. how many are actually needed makes writing TSL less intuitive for game designers. Also, each time she added an assumption or guarantee, it was hard to figure out what to add and where to add it and equally as hard to debug if the generated code didn’t mirror the system she intended to design. </p>
+
+<p><strong>The third user</strong> (Arya) was animating a cube in three.js using TSL. The main problem this user was experiencing wasn’t writing the TSL spec, but figuring out how to refactor her code so that she could seamlessly integrate the TSL spec into it. <strong>Knowing what functions to add and how to add them can be difficult for programmers of all skill levels.</strong> </p>
+
+<p>This user’s struggle with refactoring speaks to a broader issue with TSL. What makes the specification language so useful is that it separates “control” from “data”. In theory, this allows programmers to focus on the functionality of their programs and how they change over time, not variables and data management, but this isn’t entirely true. While users have to write considerably less code, they still have to think about the interactions between their TSL-generated state machine and the context that the state machine is operating. They also need to write the functions that the spec will manipulate and be familiar with some programming language. <strong>Separating control from data forces programmers to split the process of developing a program between two languages. These languages are not only different but often require conflicting modes of thinking and problem-solving.</strong> Ideally, we want to get to a space where code refactoring is standardized so that users don’t have to start from scratch whenever they want to integrate TSL into a system.  </p>
+
+<p>In general, these cases show that users need to know TSL in the context of the logical system they are trying to design, not just TSL. Another common thread is that all three users <strong>rely on programming as a crutch:</strong><br>
+They start by coding in python/javascript and then refactor their model into TSL. There is a fundamental disconnect between how programmers are taught to think and how they have to think when writing temporal logic. How do we reconcile that disconnect? </p>
+
+<p>Users are also experiencing unique problems due to their educational backgrounds. For those who understand state machines, it might be helpful to construct TSL specs by drawing out the states, while for others state machines complicate the process. How do we cater to different programmers with different backgrounds/needs when writing TSL? </p>
+
+<p>All three users noted that TSL is hard to debug because of the lack of error messages from the API and the overly complicated code generated by the specs. When synthesizing TSL, the tsltools API will respond with “Internal Server Error” when there’s an issue with the specification, whether it&#39;s logical or syntactic. When the spec is satisfiable, the API will respond with overly complicated code with repeating lines and too many if statements. This output is not an encouraging space for debugging or iteration because users first have to pick through the code to understand it and then identify where/what the problem is. <strong>TSL needs a human-readable medium to help users debug.</strong> After reflecting on the findings from our user studies, we decided that addressing this issue was the next step to improving TSL’s usability. </p>
+
+<h2 id="toc_4">tsltools Documentation and Process</h2>
+
+<p>Improving the readability of the TSL-generated code first requires an understanding of the inner workings of our synthesis tool, <a href="https://barnard-pl-labs.github.io/tsltools/">tsltools</a>. Currently, there are no tools that can directly synthesize TSL, but they exist for synthesizing Linear Temporal Logic (LTL), TSL’s relation. To synthesize TSL, we need to underapproximate it as LTL. The difference between the two specification languages is that LTL only has boolean terms, and TSL implements both update and predicate terms. </p>
+
+<p>For TSL to be compatible with LTL, its update and predicate terms need to become boolean terms. For example, an update term in TSL, “[x ← y]” needs to become the boolean variable “y<em>to</em>x”. A predicate term in TSL, “f x” needs to become the boolean variable “f_x”. tsltools takes a spec written in TSL and by executing the program tsl2tlsf it underapproximates the spec as LTL (a .tlsf file). tsltools then takes advantage of an LTL synthesis tool, <a href="https://spot.lrde.epita.fr">spot</a>. Spot takes the refactored TSL and outputs a file in <a href="http://adl.github.io/hoaf/">Hanoi Omega-Automata (HOA)</a> format. The synthesis tool then uses the .hoa file to generate the code seen on the client side. In summary, the tsltools process is as follows:</p>
+
+<p><strong>.tsl spec</strong> → [tsl2tlsf → <strong>.tlsf spec (LTL)</strong> → ltlsynt → <strong>.hoa file</strong> → hoa2code] → <strong>python/js/xstate code</strong></p>
+
+<p><strong>If we want to simplify the generated code, we need to do it after the .hoa file is generated and before it’s turned into code.</strong></p>
+
+<p>The following example shows a TSL spec and its corresponding annotated .hoa file:
+<table>
+<tr>
+<th>TSL Specification</th>
+<th>HOA File</th>
+</tr>
+<tr>
+<td>
+<pre>
+  1 always assume {
+  2 
+  3 }
+  4 
+  5 always guarantee {
+  6    isEven x → [x ← y];
+  7 }
+</pre>
+</td>
+<td></p>
+
+<pre>
+HOA: v1
+States: 1 <font color="grey">//number of states</font>
+Start: 0 <font color="grey">//start state</font> 
+AP: 3 "u0x0x" "u0x0y" "p0p0is2even0x" 
+<font color="grey">/* atomic propositions 0 through 2:
+“u0x0x” → update x with x
+“u0x0y” → update x with y
+“p0p0is2even0x” → predicate, isEven(x) */</font>
+
+<font color="grey">/* irrelevant
+acc-name: all
+Acceptance: 0 t
+properties: trans-labels explicit-labels state-acc deterministic */</font>
+--BODY-- <font color="grey">//state machine</font>
+State: 0
+[!0&1&!2 | 0&!1&!2] 0 <font color="grey">//transition</font>
+[!0&1&2] 0
+--END--
+</pre>
+
+<p></td>
+</tr>
+</table></p>
+
+<p>Each set of atomic propositions in a transition translates to an if statement in code. The predicates are the conditions of the if statement. The updates are the changes made to each variable depending on the condition. As you may notice, even this small file has areas that could be simplified. In the next section, we identify two main classes of optimizations we could perform. </p>
+
+<h2 id="toc_5">Discussion on generated code optimization and synthesis tool behavior</h2>
+
+<h3 id="toc_6">The 1st class of optimization: deleting invalid transitions</h3>
+
+<p>An invalid transition is defined as a transition that violates an assumption specified in TSL or TLSF.</p>
+
+<h4 id="toc_7"><em>Example: Bouncing Ball</em></h4>
+
+<h5 id="toc_8">TSL</h5>
+
+<div align=center><img src="pics/ballTSL.png" width="100%" height="100%"></div>
+
+<h5 id="toc_9">HOA</h5>
+
+<div align=center><img src="pics/ballHOA.png" width="30%" height="30%"></div>
+
+<h5 id="toc_10">Code</h5>
+
+<div align=center><img src="pics/ballCODE.png" width="100%" height="100%"></div>
+
+<p>In the mealy machine, state 0 is responsible for moving the ball to the left if it&#39;s not in the leftmost position and moving it to the right if it is in the leftmost position. There will never be a time when the ball is in the leftmost and rightmost position, as specified in TSL, and yet the first line in the HOA format describes a set of transitions that violate the spec. State 1 is responsible for moving the ball to the left, so there will never be a time when it’s in the rightmost position, and state 2 is the same scenario but in opposite directions. Spot generates invalid transitions for these cases as well. This behavior creates <strong>large chunks of code that will never be executed and are confusing to those trying to understand and debug their code</strong> generated from TSL specs, especially in more complicated systems with many states and assumptions. For example, one researcher was writing TSL specs for CARLA, an autonomous vehicle simulator, and his spec generated 44 states and thousands of lines of code. He couldn’t understand the code and how/why it was generated. This example speaks to a broader difficulty with synthesis. Sometimes the system can be unpredictable, but the programmer must at least semi-understand the synthesized code to deal with that unpredictability. </p>
+
+<p>This behavior can be attributed to the idea that <strong>false implies true</strong>. Our assumptions say that certain scenarios will never be true. If they are true then the system is free to make all sets of updates because there’s no specification for that violation. Our question is: <strong>how do we want to handle invalid transitions?</strong> It’s clear that spot’s approach is not suitable if we want to generate straightforward and human-readable code. Our other options are to</p>
+
+<ol>
+<li>delete all invalid transitions</li>
+<li>delete all invalid transitions, and create one that returns an error if the assumption is violated</li>
+</ol>
+
+<p>What are the benefits of leaving an optimized invalid transition in the code? Would it help users to understand the nuances of TSL? Or would it just make it more confusing? Can handling invalid transitions in these ways be done through spot, or does it require us to create a postprocessing algorithm on the HOA file? (This question was asked in an email to the spot developers and we are still waiting for a response.)</p>
+
+<h3 id="toc_11">The 2nd class of optimization: condensing valid transitions</h3>
+
+<p>The example of this part should be updated shortly. Since the update term should not be written in the always assume section.</p>
+
+<h4 id="toc_12"><em>Example: Music Notes</em></h4>
+
+<h5 id="toc_13">TSL</h5>
+
+<div align=center><img src="pics/musicTSL.png" width="50%" height="50%"></div>
+
+<h5 id="toc_14">HOA</h5>
+
+<div align=center><img src="pics/musicHOA.png" width="50%" height="50%"></div>
+
+<h5 id="toc_15">Code</h5>
+
+<div align=center><img src="pics/musicCODE1.png" width="50%" height="50%"></div>
+
+<div align=center><img src="pics/musicCODE2.png" width="50%" height="50%"></div>
+
+<h5 id="toc_16">Manually Refactored Output</h5>
+
+<div align=center><img src="pics/musicRCODE.png" width="50%" height="50%"></div>
+
+<p>In this system, at some point in time, G4 will play instead of E4. The spec generates a two-state machine where G4 plays once, and then after that, E4 plays infinitely. In theory, a transition only needs one set of updates per state. <strong>Spot often generates multiple transitions to the same state with multiple and repeating updates</strong>, as seen in the example. State 0 has four transitions to state 1 when it only needs one. When looking through <a href="https://github.com/Barnard-PL-Labs/tsltools/tree/master/src/test/res">example specs and their corresponding HOA representations</a>, we’ve noticed more often than not, <strong>the last set of atomic prepositions in a transition seems to be the only necessary one.</strong> This statement requires further research and examples to prove but could be a possible path to an optimization algorithm. This example also highlights another strange behavior that may have more to do with TSL than the synthesis tool. The function “noteToPlay” is treated as both an input and an output and is updated with itself on multiple occasions when it’s redundant. Understanding this behavior may require reviewing <a href="https://www.cs.yale.edu/homes/piskac/papers/2019FinkbeinerETALTSLLogic.pdf">TSL’s formal documentation and definition</a> [1]. Although only minorly inconvenient, eliminating this line in the code is another area for optimization.  </p>
+
+<h2 id="toc_17">Relevant Work</h2>
+
+<h3 id="toc_18">A Perspective on the Evolution of Live Programming, Steven Tanimoto, University of Washington [2]</h3>
+
+<p>We explored Tanimoto’s concept of levels of liveness in live programming and how it intertwines with the framework for TSL. In his paper, Tanimoto defines six levels that a live program could be classified. These levels are illustrated below. </p>
+
+<div align=center><img src="pics/liveness.png" width="40%" height="40%"></div>
+
+<p>To get TSL to level one, we need to embed a state machine visual representation of the specs into our TSL editor. Ideally, this machine would dynamically cycle between states when the code is running. </p>
+
+<p><strong>While TSL can’t be considered a live coding environment under these standards, it already incorporates elements from multiple levels, breaking the hierarchy of liveness.</strong> This is because reactive synthesis transcends the traditional four-phase program process (edit, compile, link, debug) with its fifth and final tactically predictive phase. By nature, one TSL spec has many equivalent representations in code. Before the synthesis tool generates code on the client side, it decides which representation to display to the client. This prediction can be considered an element of the 5th level of liveness.</p>
+
+<p>Interfaces like dynamicGrammars bring TSL into the live coding space, but it’s hard to see how these environments can progress past needing to be executable by the user (level 2). Level 3 requires the environment to update the system any time the user edits their spec. One solution (in the context of dynamicGrammars) is to constantly play music and only change it when the API receives a satisfiable spec, but many satisfiable specs generate unusable code. <strong>The spec must be satisfiable and generate executable code in the context of the system on the other side</strong> (Tone.js, three.js, CARLA, etc.). This dilemma is another potential area for research. Regardless, this hierarchy provides a solid framework for the current and future spaces we are working in with TSL. </p>
+
+<h3 id="toc_19">Exploring Novice Programmer Example Use, Michelle Ichinco, and Caitlin Kelleher, Washington University [3]</h3>
+
+<p>Both expert and novice programmers use examples when writing code. More studies have been done on expert programmers’ example use. Findings from previous studies on it include 1) expert programmers only use examples as an initial source of information, and 2) they started to use example code before fully understanding it and made mistakes while adapting the example. In this study, researchers focused on how novice programmers use examples when coding. The participants were kids aged 10-15 with less than 3 hours of programming experience, and they completed coding tasks in pairs. They found that, for novice programmers, using concepts from examples was more challenging than identifying them. Participants spent more time on the task after the “realization point” (the moment the participants understood how to integrate the example into their code) than before. In the paper, the researchers also introduced the hurdles that novice programmers were going through. We summarized each hurdle and how it can be related to our study on TSL.</p>
+
+<p>A <strong>context distraction</strong> hurdle happens before the realization point. It refers to the unfamiliarity with the programming environment and/or code. This hurdle can be linked to the problem we first identified when writing TSL. For beginners, not understanding TSL’s syntax makes it difficult to begin writing it. The researchers mentioned that for participants that are new to the programming environment and the task, getting past this hurdle is valuable. <strong>It’s important to have balance so that users have enough freedom to learn TSL on their own, but enough guidance so that it’s easier to understand and write.</strong> Thus, we also want to think about how much we want our structured editor to interfere with the context distraction hurdle our users are going through.</p>
+
+<p>An <strong>example comprehension</strong> hurdle refers to the confusion about the example that prevented programmers from using it or being able to generate idea based on it. In some cases, the participants did not understand how the example related to their task, so they did not even consider using it. In other cases, they did not understand what was happening in the example. In these cases, they had a much later realization point. This can be linked to the problem of what examples should be chosen for users to learn about TSL. The existing documentation on <a href="https://barnard-pl-labs.github.io/tsltools/tsl_intro_blogpost">‘what is TSL’</a> is not as helpful for more complicated systems since it only involves changing notes in the context of music.</p>
+
+<p>A <strong>programming environment</strong> hurdle refers to the unfamiliarity or confusion with the programming environment, and it happens after the realization point. In TSL, the programming environment may be the structured editor or the API. For dynamicGrammars, this hurdle might be the abundance of buttons and functions available on the screen. However, dynamicGrammars is a step ahead of the <a href="https://tslsynthesissynthesizer.com">TSL Synthesis Synthesizer</a> for music in its usability. This also relates to the question we raised when introducing the context distraction hurdle.</p>
+
+<p>A <strong>code misconception</strong> hurdle refers to the misconceptions about how the programs work. In some cases, it is often followed by code comprehension hurdles, in which participants expected their code to do one thing, but it did another. We’ve identified generated code misconception and comprehension as one of the main difficulties with writing TSL. Having misconceptions about TSL (function interactions, behaviors overtime, general TSL rules, etc.) can lead to confusing behavior in generated code. This could be extended to not understanding the generated code due to overly complicated API output. In this case, the code may be correct, but it’s hard to verify that.</p>
+
+<p>In TSL, we are all novice programmers to an extent, so we all experience these hurdles on occasion. They are important to address when furthering our work. In the future, we want to have a <strong>running list of example specs</strong> in a <strong>variety of contexts</strong> available for users to pick through and understand. They could be a mix of examples provided in the tsltools repository and ones we write, mainly focusing on different TSL concepts. In the study, they used <strong>annotated examples</strong>, which were helpful for participants. Additionally, having a <strong>help section</strong> that includes operator definitions and explanations, and a list of the most common problems of writing TSL (negation issues, syntax, multiple simultaneous updates to the same function, etc.) may be helpful.</p>
+
+<h2 id="toc_20">References &amp; Additional Helpful Links</h2>
+
+<p>[1] Finkbeiner, et al. “Temporal Stream Logic: Synthesis beyond the Bools.” Computer Aided Verification, 2019, pp. 609–629., https://doi.org/10.1007/978-3-030-25540-4_35.<br>
+[2] Tanimoto, Steven. (2013). A perspective on the evolution of live programming. 2013 1st International Workshop on Live Programming, LIVE 2013 - Proceedings. 31-34. 10.1109/LIVE.2013.6617346.<br>
+[3] M. Ichinco and C. Kelleher, &quot;Exploring novice programmer example use,&quot; 2015 IEEE Symposium on Visual Languages and Human-Centric Computing (VL/HCC), 2015, pp. 63-71, doi: 10.1109/VLHCC.2015.7357199.</p>
+
+<p><a href="https://docs.google.com/presentation/d/19tw3bVFKbB4Jlz-PJmSb1_uRTLpzpJqw3h8taqY4vfQ/edit#slide=id.g131ff987028_0_33">Program Synthesis: how to</a></p>
+
+<p><a href="https://docs.google.com/presentation/d/1WGnCE4jGARl453xb5Ojy5S2RAUJ2CNUiaWcoilt7Kz8/edit?usp=sharing">Initial SRI project pres</a> (justification behind the structured editor)</p>
+
+<p><a href="https://stately.ai/viz">XState visualizer</a></p>
+
+
+
+
+</body>
+
+</html>
