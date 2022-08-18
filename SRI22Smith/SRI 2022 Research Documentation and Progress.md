@@ -5,7 +5,11 @@
 
 ## Initial Research
 
-Over the past ten weeks, we have been exploring how to make writing TSL more straightforward for programmers of all skill levels. Our first goal was to design a structured editor that eliminated the need to know the intricacies of TSL’s syntax and operators. We developed the structured editor, [dynamicGrammars](https://barnard-pl-labs.github.io/dynamicGrammars/), with dropdown menus that displayed the TSL grammar ([try a demo here](https://barnard-pl-labs.github.io/dynamicGrammars/frontEnd/oldDG.html)). With this interface, users could learn TSL through the context of music. We then presented the idea of an autofill system that could help users learn to write TSL and use its grammar, not just build it from dropdowns. After finishing our initial iterations we realized that TSL’s syntax and operators are only inhibitors for first-time users and become straightforward after playing around with dynamicGrammars or the [tsltools web API](https://barnard-pl-labs.github.io/tsl-api/). **We realized that:**
+Over the past ten weeks, we have been exploring how to make writing TSL more straightforward for programmers of all skill levels. Our first goal was to design a structured editor that eliminated the need to know the intricacies of TSL’s syntax and operators. We developed the **structured editor**, [dynamicGrammars](https://barnard-pl-labs.github.io/dynamicGrammars/), with dropdown menus that displayed the TSL grammar.
+
+<div align=center><img src="pics/SE1.jpeg" width="90%" height="90%"></div>
+
+With [this original interface](https://barnard-pl-labs.github.io/dynamicGrammars/frontEnd/oldDG.html), users could learn TSL through the context of music. We then presented the idea of an autofill system that could help users learn to write TSL and use its grammar, not just build it from dropdowns. More musical richness were then added to [the interface](https://barnard-pl-labs.github.io/dynamicGrammars/frontEnd/dynamicGrammars.html). After finishing our initial iterations we realized that TSL’s syntax and operators are only inhibitors for first-time users and become straightforward after playing around with dynamicGrammars or the [tsltools web API](https://barnard-pl-labs.github.io/tsl-api/). **We realized that:**
 > <font color="black">**The real problem with TSL isn’t its syntactic complexity, it’s that there is no uniform approach to designing a logical system with it and no debugging tools to help standardize that approach.**</font>
 
 ## Pilot Studies
